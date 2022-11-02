@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: casanovageary
@@ -12,7 +13,7 @@
 </head>
 <body>
 <h1>Login Form</h1>
-<form action="/login.jsp" method="post">
+<form action="login.jsp" method="POST">
     <label for="username">Username: </label>
     <input type="text" id="username" placeholder="Enter Username" name="uname">
     <br>
@@ -21,15 +22,23 @@
     <br>
     <input type="submit" value="Submit">
 </form>
-<p>"username" parameter: ${param.uname}</p>
-<p>"password" parameter: ${param.pwd}</p>
-<c:if>
+
+<p>Username: ${param.uname}</p>
+<p>Password: ${param.pwd}</p>
+
+<c:choose>
     <c:when test="${param.uname.equals('admin') && param.pwd.equals('password')}">
-        <%response.sendRedirect("/profile.jsp");%>
+
+        <% response.sendRedirect("/profile.jsp"); %>
     </c:when>
     <c:otherwise>
-        <%response.sendRedirect("/login.jsp");%>
+        <c:if test="${param.username == null && param.password == null}">
+                <p>Enter Username and Password</p>
+        </c:if>
+        <c:if test="${param.username.equals('admin') && param.password.equals('password')}">
+        <% response.sendRedirect("/login.jsp"); %>
+        </c:if>
     </c:otherwise>
-</c:if>
+</c:choose>
 </body>
 </html>
