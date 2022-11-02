@@ -14,12 +14,22 @@
 <h1>Login Form</h1>
 <form action="/login.jsp" method="post">
     <label for="username">Username: </label>
-    <input type="text" id="username" placeholder="Enter Username">
+    <input type="text" id="username" placeholder="Enter Username" name="uname">
     <br>
     <label for="password">Password: </label>
-    <input type="text" id="password" placeholder="Enter Password">
+    <input type="text" id="password" placeholder="Enter Password" name="pwd">
     <br>
     <input type="submit" value="Submit">
 </form>
+<p>"username" parameter: ${param.uname}</p>
+<p>"password" parameter: ${param.pwd}</p>
+<c:if>
+    <c:when test="${param.uname.equals('admin') && param.pwd.equals('password')}">
+        <%response.sendRedirect("/profile.jsp");%>
+    </c:when>
+    <c:otherwise>
+        <%response.sendRedirect("/login.jsp");%>
+    </c:otherwise>
+</c:if>
 </body>
 </html>
