@@ -9,11 +9,11 @@ public class Album
     private String name;
     private Date release_date;
     private double sales;
-    private char genre;
+    private String genre;
 
     public Album(){}
 
-    public Album(long id, String artist, String name, Date release_date, double sales, char genre)
+    public Album(long id, String artist, String name, Date release_date, double sales, String genre)
     {
         this.id = id;
         this.artist = artist;
@@ -21,6 +21,9 @@ public class Album
         this.release_date = release_date;
         this.sales = sales;
         this.genre = genre;
+    }
+
+    public Album(int id, String the_doors, String waiting_for_the_sun, String s, int sales, String rock) {
     }
 
     public long getId()
@@ -73,12 +76,12 @@ public class Album
         this.sales = sales;
     }
 
-    public char getGenre()
+    public String getGenre()
     {
         return genre;
     }
 
-    public void setGenre(char genre)
+    public void setGenre(String genre)
     {
         this.genre = genre;
     }
