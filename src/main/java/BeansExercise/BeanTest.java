@@ -19,8 +19,9 @@ public class BeanTest
         {
             System.out.println(quote.getContent());
             System.out.println(quote.getAuthor().getFirstName() + " " + quote.getAuthor().getLastName());
-            System.out.println();
+
         }
+        System.out.println(waitingForTheSun.getArtist() + " " + waitingForTheSun.getRelease_date() + " " + waitingForTheSun.getName() + " " + waitingForTheSun.getGenre());
     }
 
     /*In BeanTest, experiment with storing multiple instances of Quote in an arraylist and iterating over it to print out the content and author name of multiple quotes.*/
