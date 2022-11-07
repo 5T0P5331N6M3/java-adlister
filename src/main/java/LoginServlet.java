@@ -12,7 +12,7 @@ public class LoginServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -25,6 +25,9 @@ public class LoginServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        // Tracking Session
+        HttpSession session = request.getSession();
+
         if (request.getMethod().equalsIgnoreCase("post"))
         {
             String username = request.getParameter("username");
@@ -39,3 +42,10 @@ public class LoginServlet extends HttpServlet
         }
     }
 }
+/*
+    // Track Session
+    HttpSession session = request.getSession();
+// Set an attribute named "username" with the value of "CodeupRipoff
+        session.setAttribute("username", "CodeupRipoff");
+                // Print value of session key username to console
+                System.out.println(session.getAttribute("username"));*/

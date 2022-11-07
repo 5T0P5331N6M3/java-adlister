@@ -3,11 +3,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "ViewProfileServlet", urlPatterns = "/profile")
-public class ViewProfileServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/profile.jsp").forward(request, response);
+public class ViewProfileServlet extends HttpServlet
+{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        // Track Session
+        HttpSession session = request.getSession();
+        // Set an attribute named "username" with the value of "CodeupRipoff
+        session.setAttribute("username", "CodeupRipoff");
+        // Print value of session key username to console
+        System.out.println(session.getAttribute("username"));
+
+
+        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
 }
