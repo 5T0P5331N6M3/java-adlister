@@ -6,11 +6,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/login")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet
 {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        request.getRequestDispatcher("/login.jsp").forward(request, response);
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -18,13 +20,22 @@ public class LoginServlet extends HttpServlet
         System.out.println("Username: " + username);
         System.out.println("Password: " + password);
 
-        if (username != null && username.equalsIgnoreCase("admin@stuff.com") && password != null && password.equalsIgnoreCase("admiin"))
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        if (request.getMethod().equalsIgnoreCase("post"))
         {
-            // Redirect to a Welcome Page; need to pass value in session in order to carry forward one to next pages
-            HttpSession httpSession = request.getSession();
-            // By setting the variable in session, it can be forwarded
-            httpSession.setAttribute("username", username);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            if (username.equals("admin") && password.equals("password"))
+            {
+                response.sendRedirect("/profile");
+            } else
+            {
+                response.sendRedirect("/login");
+            }
         }
     }
 }
