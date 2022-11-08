@@ -33,4 +33,4 @@ CREATE TABLE ads
 );
 
 SHOW TABLES;
-DESCRIBE users;
+DESCRIBE ads;
