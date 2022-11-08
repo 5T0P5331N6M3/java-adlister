@@ -13,8 +13,17 @@ public class ViewProfileServlet extends HttpServlet
     {
         // Track Session
         HttpSession session = request.getSession();
+
+        if(session.getAttribute("user") == null)
+        {
+            response.sendRedirect("/login");
+        } else
+        {
+            request.getRequestDispatcher("/profile.jsp");
+        }
+
         // Set an attribute named "username" with the value of "CodeupRipoff
-        session.setAttribute("username", "CodeupRipoff");
+        session.setAttribute("username", "HaskellOstrich");
         // Print value of session key username to console
         System.out.println(session.getAttribute("username"));
 

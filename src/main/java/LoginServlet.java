@@ -12,6 +12,7 @@ public class LoginServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -32,6 +33,13 @@ public class LoginServlet extends HttpServlet
         {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            boolean validAttempt = username.equals("admin") && password.equals("password")
+            if(validAttempt)
+            {
+                HttpSession session = request.getSession();
+                session.setAttribute("user", username);
+                response.sendRedirect("profile");
+            }
             if (username.equals("admin") && password.equals("password"))
             {
                 response.sendRedirect("/profile");
