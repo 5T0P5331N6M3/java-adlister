@@ -10,13 +10,18 @@ import java.io.PrintWriter;
 public class CounterServlet extends HttpServlet
 {
     private int hitCount;
+    public void init()
+    {
+        hitCount = 0;
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-
         response.setContentType("text/html");
+
         hitCount++;
+
         PrintWriter out = response.getWriter();
         out.println("Hit Count is: " + hitCount);
     }
