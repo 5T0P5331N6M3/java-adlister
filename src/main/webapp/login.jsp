@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: casanovageary
@@ -14,9 +15,10 @@
 <h1>Login</h1>
 <form action="login.jsp" method="post">
     <label for="username">Username:</label>
-    <input type="text" class="username" name="username" required="required">
+    <input id="username" type="text" class="username" name="username" required="required">
     <label for="password">Password:</label>
-    <input type="text" class="password" name="password" required="required">
+    <input id="password" type="text" class="password" name="password" required="required">
+    <input type="submit" value="Submit">
 </form>
 </body>
 </html>
