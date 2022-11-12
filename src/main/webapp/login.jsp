@@ -40,6 +40,11 @@
     <c:when test="${param.username.equals('admin') && param.password.equals('password')}">
         <% response.sendRedirect("/profile.jsp"); %>
     </c:when>
+    <c:otherwise>
+        <c:if test="${param.username.equals('cas') && param.password.equals('password')}">
+            <% response.sendRedirect("/login.jsp"); %>
+        </c:if>
+    </c:otherwise>
 </c:choose>
 </body>
 </html>
