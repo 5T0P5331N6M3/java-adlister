@@ -11,6 +11,12 @@
     <title>Login</title>
 </head>
 <body>
-
+<h1>Login</h1>
+<form action="login.jsp" method="post">
+    <label for="username">Username:</label>
+    <input type="text" class="username" name="username" required="required">
+    <label for="password">Password:</label>
+    <input type="text" class="password" name="password" required="required">
+</form>
 </body>
 </html>
