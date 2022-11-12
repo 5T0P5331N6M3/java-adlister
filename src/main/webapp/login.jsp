@@ -17,7 +17,7 @@
 <body>
 <h1>Login Page</h1>
 
-<form action=login.jsp" method="post">
+<form action="login.jsp" method="post">
     <div class="row mb-3">
         <label for="username">Username:</label>
         <div class="col-sm-10">
@@ -35,6 +35,11 @@
 
 <p>Username: ${param.username}</p>
 <p>Password: ${param.password}</p>
+
+<c:choose>
+    <c:when test="${param.username.equals('admin') && param.password.equals('password')}">
+        <% response.sendRedirect("/profile.jsp"); %>
+    </c:when>
+</c:choose>
 </body>
 </html>
-
