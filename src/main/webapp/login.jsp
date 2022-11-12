@@ -10,15 +10,31 @@
 <html>
 <head>
     <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
 </head>
 <body>
-<h1>Login</h1>
-<form action="login.jsp" method="post">
-    <label for="username">Username:</label>
-    <input id="username" type="text" class="username" name="username" required="required">
-    <label for="password">Password:</label>
-    <input id="password" type="text" class="password" name="password" required="required">
-    <input type="submit" value="Submit">
+<h1>Login Page</h1>
+
+<form action=login.jsp" method="post">
+    <div class="row mb-3">
+        <label for="username">Username:</label>
+        <div class="col-sm-10">
+            <input id="username" type="text" class="username" name="username" required="required">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="password">Password:</label>
+        <div class="col-sm-10">
+            <input id="password" type="text" class="password" name="password" required="required">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
+
+<p>Username: ${param.username}</p>
+<p>Password: ${param.password}</p>
 </body>
 </html>
+
