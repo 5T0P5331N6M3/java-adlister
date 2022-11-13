@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ColorServlet", urlPatterns = "/pickcolor")
+@WebServlet(name = "PickColorServlet", urlPatterns = "/pickcolor")
 public class PickColorServlet extends HttpServlet
 {
     @Override
@@ -18,10 +18,9 @@ public class PickColorServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        // Response type
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        String favColor = String.valueOf(response.getWriter());
-        out.println("<body style='background-color" + favColor + ";'>");
+        String color = request.getParameter("color");
+        String url = "/viewcolor?color=" + color;
+        response.sendRedirect(url);
+
     }
 }

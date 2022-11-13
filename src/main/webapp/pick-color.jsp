@@ -13,21 +13,12 @@
 </head>
 <body>
 <h1>What is your favorite color?</h1>
-<form action="/pick-color.jsp">
-    <label for="colorChoice">Select a Color:</label>
-    <input type="color" id="colorChoice" name="colorChoice" value="#FF00EA">
+<form action="/pickcolor" method="post">
+    <label for="color">Select a Color:</label>
+    <input type="text" id="color" name="color" >
     <br>
     <br>
-    <input type="Submit">
-
-    <c:choose>
-        <c:when test="${param.colorChoice}">
-            <% response.sendRedirect("/view-color.jsp"); %>
-        </c:when>
-        <c:otherwise>
-            <% response.sendRedirect("/pick-color.jsp"); %>
-        </c:otherwise>
-    </c:choose>
+    <input type="submit" value="Submit">
 </form>
 </body>
 </html>
