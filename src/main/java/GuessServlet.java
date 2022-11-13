@@ -9,11 +9,25 @@ import java.io.IOException;
 public class GuessServlet extends HttpServlet
 {
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        req.getRequestDispatcher("guess.jsp").forward(req, resp);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        String guess = null;
-        int number = Integer.parseInt(req.getParameter(guess));
-        String url = "/outcome?number=" + number;
-        resp.sendRedirect(url);
+        int number = Integer.parseInt(req.getParameter("guess"));
+        int machineNumber = (int) Math.floor((Math.random() * 3) + 1);
+        if (number == machineNumber)
+        {
+            resp.sendRedirect("/correct");
+        } else if ( number != machineNumber)
+        {
+            resp.sendRedirect("/incorrect");
+        } else
+        {
+            resp.sendRedirect("/guess");
+        }
     }
 }
