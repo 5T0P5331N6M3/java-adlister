@@ -1,17 +1,17 @@
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Album
 {
     private long id;
     private String artist;
     private String record_name;
-    private LocalDate release_date;
+    private Date release_date;
     private double sales;
     private String genre;
 
     public Album(){}
 
-    public Album(long id, String artist, String record_name, LocalDate release_date, double sales, String genre)
+    public Album(long id, String artist, String record_name, Date release_date, double sales, String genre)
     {
         this.id = id;
         this.artist = artist;
@@ -45,11 +45,11 @@ public class Album
         this.record_name = record_name;
     }
 
-    public LocalDate getRelease_date() {
+    public Date getRelease_date() {
         return release_date;
     }
 
-    public void setRelease_date(LocalDate release_date) {
+    public void setRelease_date(Date release_date) {
         this.release_date = release_date;
     }
 
