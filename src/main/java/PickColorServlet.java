@@ -4,9 +4,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "ColorServlet", urlPatterns = "/pickcolor")
-public class ColorServlet extends HttpServlet
+public class PickColorServlet extends HttpServlet
 {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -17,6 +18,10 @@ public class ColorServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-//        System.out.println(request.getParameter());
+        // Response type
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        String favColor = String.valueOf(response.getWriter());
+        out.println("<body style='background-color" + favColor + ";'>");
     }
 }

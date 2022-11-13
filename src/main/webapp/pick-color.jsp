@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: casanovageary
@@ -18,6 +19,15 @@
     <br>
     <br>
     <input type="Submit">
+
+    <c:choose>
+        <c:when test="${param.colorChoice}">
+            <% response.sendRedirect("/view-color.jsp"); %>
+        </c:when>
+        <c:otherwise>
+            <% response.sendRedirect("/pick-color.jsp"); %>
+        </c:otherwise>
+    </c:choose>
 </form>
 </body>
 </html>

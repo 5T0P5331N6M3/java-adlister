@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Selected Color</title>
+    <title>Favorite Color</title>
 </head>
 <body>
 
