@@ -33,27 +33,19 @@ public class LoginServlet extends HttpServlet
         {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            boolean validAttempt = username.equals("admin") && password.equals("password")
+            boolean validAttempt = username.equals("admin") && password.equals("password");
             if(validAttempt)
             {
-                HttpSession session = request.getSession();
                 session.setAttribute("user", username);
                 response.sendRedirect("profile");
             }
             if (username.equals("admin") && password.equals("password"))
             {
-                response.sendRedirect("/profile");
+                response.sendRedirect("/WEB-INF/profile.jsp");
             } else
             {
-                response.sendRedirect("/login");
+                response.sendRedirect("/WEB-INF/login");
             }
         }
     }
 }
-/*
-    // Track Session
-    HttpSession session = request.getSession();
-// Set an attribute named "username" with the value of "CodeupRipoff
-        session.setAttribute("username", "CodeupRipoff");
-                // Print value of session key username to console
-                System.out.println(session.getAttribute("username"));*/

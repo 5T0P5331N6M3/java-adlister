@@ -11,22 +11,19 @@ public class ViewProfileServlet extends HttpServlet
 {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        // Track Session
         HttpSession session = request.getSession();
 
         if(session.getAttribute("user") == null)
         {
-            response.sendRedirect("/login");
+            response.sendRedirect("/WEB-INF/login");
         } else
         {
-            request.getRequestDispatcher("/profile.jsp");
+            request.getRequestDispatcher("/WEB-INF/profile.jsp");
         }
 
-        // Set an attribute named "username" with the value of "CodeupRipoff
         session.setAttribute("username", "HaskellOstrich");
-        // Print value of session key username to console
-        System.out.println(session.getAttribute("username"));
 
+        System.out.println(session.getAttribute("username"));
 
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
