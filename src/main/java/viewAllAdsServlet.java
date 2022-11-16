@@ -7,10 +7,11 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/ads")
-public class AllAdsServlet extends HttpServlet
+public class viewAllAdsServlet extends HttpServlet
 {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
         List<Ad> ads = DaoFactory.getAdsDao().all();
         req.setAttribute("ads", ads);
         req.getRequestDispatcher("/ads/index.jsp").forward(req, resp);
