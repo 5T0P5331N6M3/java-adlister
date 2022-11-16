@@ -10,6 +10,11 @@ SELECT * FROM mysql.user;
 
 GRANT ALL ON adlister_db.* TO 'Ostrich'@'localhost';
 
+USE adlister_db;
+
+DROP TABLE IF EXISTS ads;
+DROP TABLE IF EXISTS users;
+
 CREATE TABLE users
 (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -30,7 +35,12 @@ CREATE TABLE ads
     description TEXT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
+    ON DELETE CASCADE
 );
 
 SHOW TABLES;
 DESCRIBE ads;
+
+USE adlister_db;
+
+INSERT INTO users(username, email, password) VALUES ('admin', 'admin@email.com', 'password');
