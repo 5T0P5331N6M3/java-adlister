@@ -1,6 +1,5 @@
 package com.codeup.adlister.dao;
 import com.mysql.cj.jdbc.Driver;
-import com.mysql.cj.jdbc.PreparedStatement;
 import java.sql.*;
 
 public class PreparedStatements
